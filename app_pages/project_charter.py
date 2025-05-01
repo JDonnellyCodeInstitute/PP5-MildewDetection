@@ -1,11 +1,17 @@
+import json
 import streamlit as st
 import plotly.graph_objects as go
+from pathlib import Path
+
+# cached loader for metrics.json
+@st.cache_data
+def load_metrics(version="v1"):
+    metrics_path = Path("outputs") / version / "metrics.json"
+    return json.loads(metrics_path.read_text())
 
 def page_project_charter_body():
     # Header
-    st.title("🍒 Cherry Leaf Powdery Mildew Detector")
-    st.markdown("---")
-
+    st.title("🍒 Cherry Leaf Powdery Mildew Detector Project Charter")
     st.markdown("---")
 
     # Overview
@@ -42,12 +48,16 @@ def page_project_charter_body():
        *Validation:* Compute per-image variance for each class and apply a two-sample t-test (α = 0.05).
     """)
 
-    # Gauge chart: target vs. current recall (placeholder value for now)
+    # load live metrics
+    metrics = load_metrics()  
+    current_recall = metrics["recall_mildew"]
+
+    # Gauge chart: target vs. current recall
     st.subheader("Key Success Metric")
     gauge = go.Figure(
         go.Indicator(
             mode="gauge+number+delta",
-            value=0.0,  # This will be replaced with a variable that pulls live info from the most recent run
+            value=current_recall,  # uses live recall
             delta={'reference': 0.90, 'increasing': {'color': "green"}},
             gauge={
                 'axis': {'range': [0, 1], 'tickformat': '.0%'},
