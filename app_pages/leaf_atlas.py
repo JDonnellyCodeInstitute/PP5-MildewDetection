@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 import plotly.express as px
+import random
+from PIL import Image
 
 # cache stats load
 @st.cache_data
@@ -42,3 +44,28 @@ def page_leaf_atlas_body():
     )
     st.plotly_chart(hist_fig, use_container_width=True)
 
+# Scatter of mean vs. variance
+    st.subheader("Mean vs. Variance Scatter")
+    scatter_fig = px.scatter(
+        df_stats[df_stats["class"].isin(selected_classes)],
+        x="mean",
+        y="variance",
+        color="class",
+        title="Per-Image Mean vs. Variance",
+        hover_data=["filepath"],
+    )
+    st.plotly_chart(scatter_fig, use_container_width=True)
+
+    # Sample collage
+    st.subheader("Random Sample Collage")
+    n_samples = st.slider("Images per class", min_value=4, max_value=16, step=4, value=12)
+    split_paths = list_image_paths(split="train")
+
+    for cls in selected_classes:
+        st.markdown(f"**{cls.title()} Samples**")
+        paths = split_paths.get(cls, [])
+        samples = random.sample(paths, min(n_samples, len(paths)))
+        cols = st.columns(int(n_samples**0.5))
+        for i, img_path in enumerate(samples):
+            img = Image.open(img_path)
+            cols[i % len(cols)].image(img, use_container_width=True)
