@@ -3,6 +3,7 @@ from app_pages.multipage import MultiPage
 
 # Load pages scripts
 from app_pages.project_charter import page_project_charter_body
+from app_pages.leaf_atlas import page_leaf_atlas_body
 
 def main():
     # Create an instance of the app
@@ -10,6 +11,7 @@ def main():
 
     # Add app pages
     app.add_page("Project Charter", page_project_charter_body)
+    app.add_page("Leaf Atlas", page_leaf_atlas_body)
 
     # Run app
     app.run()
