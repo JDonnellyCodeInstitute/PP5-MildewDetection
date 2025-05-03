@@ -48,3 +48,24 @@ def page_training_dashboard_body():
         markers=True
     )
     st.plotly_chart(fig, use_container_width=True)
+    
+    # Bar chart of top-5 validation accuracies
+    if metric == "accuracy":
+        st.subheader("Top 5 Validation Accuracy Epochs")
+        top5 = df.nlargest(5, "val_accuracy")[["epoch", "val_accuracy"]]
+        bar = px.bar(
+            top5,
+            x="epoch",
+            y="val_accuracy",
+            labels={"epoch": "Epoch", "val_accuracy": "Validation Accuracy"},
+            title="Top 5 Epochs by Validation Accuracy",
+            text=top5["val_accuracy"].map("{:.2%}".format)
+        )
+        bar.update_traces(textposition="outside")
+        st.plotly_chart(bar, use_container_width=True)
+    
+    st.markdown("---")
+    st.write(
+        "Use the selector above to switch between loss and accuracy. "
+        "When viewing accuracy, explore the top epochs to see where the model performed best."
+    )
