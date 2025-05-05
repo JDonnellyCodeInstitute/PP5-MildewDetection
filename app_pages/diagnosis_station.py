@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import json
 from pathlib import Path
 from PIL import Image
@@ -33,7 +34,8 @@ def page_diagnosis_station_body():
         
         **How to interact:**  
         - Drag & drop PNG/JPG files or click “Browse files”  
-        - Adjust the decision threshold to tune sensitivity
+        - Adjust the decision threshold to tune sensitivity  
+        - Download a CSV of your batch results for record-keeping
         """
     )
     st.markdown("---")
@@ -102,3 +104,15 @@ def page_diagnosis_station_body():
             ))
             st.plotly_chart(fig, use_container_width=True)
             st.markdown("---")
+
+        # Batch results table & download
+        df = pd.DataFrame(results)
+        st.subheader("Batch Results")
+        st.dataframe(df)
+        csv = df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            "Download results as CSV",
+            data=csv,
+            file_name="mildew_predictions.csv",
+            mime="text/csv"
+        )
