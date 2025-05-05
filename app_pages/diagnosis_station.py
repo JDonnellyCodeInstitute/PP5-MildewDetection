@@ -102,7 +102,15 @@ def page_diagnosis_station_body():
                 },
                 title={'text': f"Confidence: {label.replace('_',' ').title()}"}
             ))
-            st.plotly_chart(fig, use_container_width=True)
+
+            # Bug fix: gives each chart a unique key to avoid duplicate-element errors
+            chart_key = f"gauge_{file.name}"
+
+            st.plotly_chart(
+                fig,
+                use_container_width=True,
+                key=chart_key
+            )
             st.markdown("---")
 
         # Batch results table & download
