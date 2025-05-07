@@ -75,18 +75,22 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Deployment
 
-### Heroku
+### Render
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
+- The App live link is: `[Cherry Leaf Mildew Detector](https://pp5-mildewdetection.onrender.com/)`
+- Set the .python-version file Python version to 3.12.
+- The project was deployed to Render using the following steps.
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
+1. Ensure models/*.h5 is included in your .gitignore file as it contains too much data to submit to GitHub.
+2. Go to render.com and create a new Web Service. **Add New** then **Web Service**.
+3. Connect your GitHub account and select your repository (and branch if you have multiple).
+4. We chose the **Standard** payment model which permits 2 GB RAM as our project does not fit in the smaller tiers.
+5. The build command is left as default (pip install -r requirements.txt ).
+6. The start command is set to run a Streamlit server with an exported port and a server flag that permits external traffic:
+   - streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+7. No environment variables are required.
+8. Select **Manual Deploy** then **Deploy Latest Commit**.
+9. Once "Live" turns green, the URL provided will allow you to access the deployed project.
 
 ## Main Data Analysis and Machine Learning Libraries
 
