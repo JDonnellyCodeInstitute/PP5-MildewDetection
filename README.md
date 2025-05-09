@@ -30,6 +30,35 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
+## Business Requirements
+
+1. **Visual Study:**  
+ Agronomists need side-by-side comparisons of healthy vs. infected leaves to understand mildew indicators.  
+2. **Automated Detection:**  
+ A real-time CNN must classify a leaf image as *Healthy* or *Powdery Mildew* in under 1 s, achieving ≥ 90 % recall on the mildew class to guide rapid treatment across thousands of trees.
+
+---
+
+## Hypotheses & Validation
+
+1. **Model Accuracy Hypothesis**  
+   A CNN fine-tuned on cherry-leaf images will achieve **≥ 90 % recall** on the *Powdery Mildew* class.  
+   **Validation:** Evaluate on the held-out test set; compute recall and its 95 % confidence interval; perform a one-sample t-test against a 50 % random-guess baseline (α = 0.05).
+
+2. **Image Variance Hypothesis**  
+   Powdery mildew leaves exhibit **higher pixel-intensity variance** than healthy leaves.  
+   **Validation:** Compute per-image variance; compare healthy vs. mildew distributions with a two-sample t-test (α = 0.05).
+
+3. **Mean Intensity Hypothesis**  
+   The **mean pixel intensity** of mildew-infected leaves differs significantly from healthy leaves.  
+   **Validation:** Compute per-image mean intensity; apply a two-sample t-test (α = 0.05) to test for a significant class-wise difference.
+
+4. **Learning-Rate & EarlyStopping Hypothesis**  
+   **Lowering** the learning rate to 1 × 10⁻⁴ **and** using EarlyStopping produces **smoother convergence** and **higher final validation accuracy** than the initial higher learning rate.  
+   **Validation:** Compare Run 1 (LR = 1 × 10⁻³, no EarlyStopping) vs. Run 2 (LR = 1 × 10⁻⁴, EarlyStopping) learning curves; quantify oscillations and plateau onset via epoch-wise val_loss variance and peak val_accuracy.
+
+---
+
 ## Deployment
 
 ### Render
