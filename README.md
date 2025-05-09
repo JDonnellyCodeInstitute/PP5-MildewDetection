@@ -84,6 +84,44 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
+## Dashboard Design
+
+**Streamlit multipage app** with six pages:
+
+1. **Project Charter**
+
+   - Overview, objectives, user stories, hypotheses, live recall gauge
+
+2. **Leaf Atlas**
+
+   - Class-filter sidebar, variance histogram + boxplot, mean-vs-variance scatter, sample collage
+
+3. **Preprocessing Playground**
+
+   - Sliders/checkboxes for augmentation parameters, original vs. augmented preview
+
+4. **Training Dashboard**
+
+   - Metric selector (loss/accuracy), train vs. val curves, top-5 validation epochs bar chart
+
+5. **Validation & Insights**
+
+   - Confusion matrix image, success/failure alert (live recall), pixel-variance boxplot, next-steps expander
+
+6. **Diagnosis Station**
+
+   - File uploader, threshold slider, prediction gauge, batch results table + CSV download
+
+---
+
+## Unfixed Bugs
+
+- **IDE lint warnings** on `tensorflow.keras` imports—safe to ignore if environment is correct.  
+- **Model file size** tracked via `.gitignore` and external load pattern.  
+- **Collage layout** may shift slightly depending on sample count—acceptable for current scope.
+
+---
+
 ## Deployment
 
 ### Render
