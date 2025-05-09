@@ -59,6 +59,31 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
+## Rationale: Mapping Business Requirements to Tasks
+
+| Business Requirement             | Data Visualization                                        | ML Task                                                         |
+|----------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------|
+| Visual Study                     | Class-counts bar, image-shape scatter, montages           | —                                                               |
+| Automated Detection (≥ 90 % R)   | Learning curves, confusion matrix, live recall gauge      | Build & tune CNN with EarlyStopping; save model & metrics JSON |
+
+---
+
+## ML Business Case
+
+- **Aim:** Detect powdery mildew on cherry leaves with high recall.  
+- **Method:** Custom CNN (3× Conv→BatchNorm→Pool blocks + dropout).  
+- **Ideal Outcome:**  
+- Recall (mildew) ≥ 0.90  
+- Accuracy ≥ 0.95  
+- F1-score ≥ 0.90  
+- **Success Metrics:**  
+- Primary: test-set recall on mildew class  
+- Secondary: overall accuracy, confusion matrix, classification report  
+- **Data:** 256×256 px RGB images, augmented (rotation, shifts, zoom, flips).  
+- **Reproducibility:** seeded data splits and augmentation.
+
+---
+
 ## Deployment
 
 ### Render
