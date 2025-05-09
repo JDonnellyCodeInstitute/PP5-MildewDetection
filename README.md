@@ -140,3 +140,16 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 7. No environment variables are required.
 8. Select **Manual Deploy** then **Deploy Latest Commit**.
 9. Once "Live" turns green, the URL provided will allow you to access the deployed project.
+
+---
+
+## Main Data Analysis & ML Libraries
+
+- **TensorFlow / Keras:** model definition, training, evaluation  
+- **scikit-learn:** confusion matrix, classification report  
+- **Pandas / NumPy:** data manipulation, CSV/JSON exports  
+- **Plotly Express & Graph Objects:** interactive charts  
+- **Seaborn / Matplotlib:** static visualizations  
+- **Streamlit:** dashboard framework, caching, widgets  
+
+---
