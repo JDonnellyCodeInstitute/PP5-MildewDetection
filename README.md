@@ -153,3 +153,19 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - **Streamlit:** dashboard framework, caching, widgets  
 
 ---
+
+## Credits
+
+### Content
+
+- CRISP-DM methodology inspired by industry best practices.
+- Code Institute's malaria identifier walkthrough project has been the foundation for the Cherry Leaf Mildew detector, particularly around 'what' and 'when' to do in the jupyter notebooks.
+- Business narrative adapted from Farmy & Foods case study provided by Code Institute.
+- Gauge plot guidlines from [Plotly](https://plotly.com/python/gauge-charts/)
+
+### Media
+
+- Cherry-leaf images sourced from Kaggle: `codeinstitute/cherry-leaves`.  
+- Icons via Unicode and Plotly defaults.
+
+---
