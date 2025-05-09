@@ -1,6 +1,6 @@
 # Cherry Leaf Powdery Mildew Detector
 
-Our Cherry Leaf Mildew Detector is a full end-to-end predictive analytics solution built to automate the detection of powdery mildew on cherry leaves using a dataset of over 4,000 labeled leaf images.
+Our Cherry Leaf Mildew Detector is a full end-to-end predictive analytics solution built to automate the detection of powdery mildew on cherry leaves using a dataset of over 4,000 labelled leaf images.
 
 This README lays out the project's pathway through the CRISP-DM process:
 
@@ -10,6 +10,25 @@ This README lays out the project's pathway through the CRISP-DM process:
 4. **Interactive Dashboard**: Deploy a multipage Streamlit app that documents objectives, visual insights, preprocessing controls, training curves, validation metrics, and a live “Diagnosis Station” for user uploads.
 
 Scroll down to learn more about the dataset, business requirements, hypotheses, dashboard design, and deployment instructions.
+
+---
+
+## Dataset Content
+
+- **Source:** Kaggle – [codeinstitute/cherry-leaves](https://www.kaggle.com/codeinstitute/cherry-leaves)  
+- **Description:** ~4 000 RGB images of cherry leaves labelled `healthy` or `powdery_mildew`.  
+- **Post-processing structure:**
+      input/datasets/cherry_leaf_dataset/cherry-leaves/ ├─ train/ (70 % of images)
+      ├─ validation/ (10 %)
+      └─ test/ (20 %)
+
+- **Preparation steps:**
+
+1. Remove non-image files
+2. Split into train/validation/test with a fixed seed for reproducibility
+3. Verify class balance via counts
+
+---
 
 ## Deployment
 
