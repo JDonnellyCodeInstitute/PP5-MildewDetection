@@ -162,6 +162,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - Code Institute's malaria identifier walkthrough project has been the foundation for the Cherry Leaf Mildew detector, particularly around 'what' and 'when' to do in the jupyter notebooks.
 - Business narrative adapted from Farmy & Foods case study provided by Code Institute.
 - Gauge plot guidlines from [Plotly](https://plotly.com/python/gauge-charts/)
+- Streamlit data cache decorator [st.cache_data](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data)
+- Easy implementation of interactive plotly charts via Streamlit [st.plotly_chart](https://docs.streamlit.io/develop/api-reference/charts/st.plotly_chart)
 
 ### Media
 
