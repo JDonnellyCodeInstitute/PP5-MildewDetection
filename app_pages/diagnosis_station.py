@@ -55,10 +55,17 @@ def page_diagnosis_station_body():
             # Determine label
             label = "powdery_mildew" if prob >= threshold else "healthy"
 
+            # Align batch confidence with what the gauge shows:
+            # If healthy, confidence = 1 - prob; otherwise = prob.
+            if label == "powdery_mildew":
+                display_conf = prob
+            else:
+                display_conf = 1 - prob
+
             results.append({
                 "filename": file.name,
                 "predicted": label,
-                "confidence": float(prob)
+                "confidence": float(display_conf)
             })
 
             # Display image
@@ -67,13 +74,8 @@ def page_diagnosis_station_body():
             # DEBUG: show raw mildew probability
             st.write("Raw model output (probability of mildew):", prob)
 
-            # choose which probability to show on the gauge
-            if label == "powdery_mildew":
-                display_prob = prob
-            else:
-                display_prob = 1 - prob
-
-            pct = display_prob * 100  # scale to 0–100
+            # Gauge display
+            pct = display_conf * 100  # scale to 0–100
 
             # render gauge with confidence level
             fig = go.Figure(go.Indicator(
