@@ -4,7 +4,6 @@ sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import numpy as np
 import pandas as pd
-import json
 from pathlib import Path
 from PIL import Image
 from tensorflow.keras.models import load_model

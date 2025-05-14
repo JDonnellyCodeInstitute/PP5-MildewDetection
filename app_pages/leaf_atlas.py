@@ -2,7 +2,6 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
-import pandas as pd
 from pathlib import Path
 import plotly.express as px
 import random
