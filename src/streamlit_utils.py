@@ -39,3 +39,8 @@ def load_train_paths(version="v1"):
 @st.cache_data
 def load_confusion_matrix_image(version="v1"):
     return Path("outputs")/version/"figures"/"confusion_matrix.png"
+
+@st.cache_data
+def load_history(version="v1"):
+    path = Path("outputs") / version / "history_run2.json"
+    return json.loads(path.read_text())

@@ -1,14 +1,13 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import json
 from pathlib import Path
 
 # cache loader for training history
-@st.cache_data
-def load_history(version="v1"):
-    path = Path("outputs") / version / "history_run2.json"
-    return json.loads(path.read_text())
+from src.streamlit_utils import load_history
 
 def page_training_dashboard_body():
     st.title("Training Dashboard")

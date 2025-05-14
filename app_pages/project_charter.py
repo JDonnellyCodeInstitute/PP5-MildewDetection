@@ -1,13 +1,13 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import json
 import streamlit as st
 import plotly.graph_objects as go
 from pathlib import Path
 
 # cached loader for metrics.json
-@st.cache_data
-def load_metrics(version="v1"):
-    metrics_path = Path("outputs") / version / "metrics.json"
-    return json.loads(metrics_path.read_text())
+from src.streamlit_utils import load_metrics
 
 def page_project_charter_body():
     # Header

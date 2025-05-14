@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import pandas as pd
 import json
@@ -6,18 +9,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Cache loaders
-@st.cache_data
-def load_metrics(version="v1"):
-    p = Path("outputs") / version / "metrics.json"
-    return json.loads(p.read_text())
-
-@st.cache_data
-def load_image_stats(version="v1"):
-    return pd.read_csv(Path("outputs") / version / "image_stats.csv")
-
-@st.cache_data
-def load_confusion_matrix_image(version="v1"):
-    return Path("outputs") / version / "figures" / "confusion_matrix.png"
+from src.streamlit_utils import (load_metrics, load_image_stats, load_confusion_matrix_image)
 
 def page_validation_insights_body():
     st.title("Validation & Insights")

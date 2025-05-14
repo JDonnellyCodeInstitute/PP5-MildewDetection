@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import pandas as pd
 from pathlib import Path
@@ -5,17 +8,8 @@ import plotly.express as px
 import random
 from PIL import Image
 
-# cache stats load
-@st.cache_data
-def load_image_stats(version="v1"):
-    path = Path("outputs") / version / "image_stats.csv"
-    return pd.read_csv(path)
-
-# cache sample paths
-@st.cache_data
-def list_image_paths(split="train", version="v1"):
-    base = Path("input/datasets/cherry_leaf_dataset/cherry-leaves") / split
-    return {cls.name: list((base/cls.name).glob("*")) for cls in base.iterdir() if cls.is_dir()}
+# cache stats load and sample paths
+from src.streamlit_utils import load_image_stats, list_image_paths
 
 def page_leaf_atlas_body():
     st.title("Leaf Atlas")

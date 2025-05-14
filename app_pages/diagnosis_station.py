@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -9,21 +12,7 @@ from tensorflow.keras.preprocessing.image import img_to_array
 import plotly.graph_objects as go
 
 # Cache helpers
-@st.cache_resource
-def get_model(version="v1"):
-    path = Path("models") / "run2_model.h5"
-    return load_model(path)
-
-@st.cache_data
-def load_class_indices(version="v1"):
-    path = Path("outputs") / version / "class_indices.json"
-    return json.loads(path.read_text())
-
-@st.cache_data
-def load_image_shape(version="v1"):
-    import pickle
-    path = Path("outputs") / version / "image_shape.pkl"
-    return pickle.loads(path.read_bytes())
+from src.streamlit_utils import get_model, load_class_indices, load_image_shape
 
 def page_diagnosis_station_body():
     st.title("Diagnosis Station")

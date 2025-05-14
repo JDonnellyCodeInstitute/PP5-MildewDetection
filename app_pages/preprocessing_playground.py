@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import numpy as np
 import random
@@ -6,14 +9,7 @@ from PIL import Image
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, array_to_img
 
 # cache the list of training image paths
-@st.cache_data
-def load_train_paths(version="v1"):
-    data_dir = Path("input/datasets/cherry_leaf_dataset/cherry-leaves") / "train"
-    paths = []
-    for cls in data_dir.iterdir():
-        if cls.is_dir():
-            paths += list(cls.glob("*"))
-    return paths
+from src.streamlit_utils import load_train_paths
 
 def page_preprocessing_playground_body():
     st.title("Preprocessing Playground")
