@@ -39,12 +39,20 @@ def page_project_charter_body():
     st.subheader("Project Hypotheses & Validation")
     st.markdown("""
     1. **Model Accuracy Hypothesis**  
-       A CNN fine-tuned on cherry-leaf images will achieve ≥ 90 % recall on the *Powdery Mildew* class  
-       *Validation:* Evaluate on held-out test set, compute recall with a 95 % CI, and perform a one-sample t-test against the 50 % random baseline (α = 0.05).
+    A CNN fine-tuned on cherry-leaf images will achieve ≥ 90 % recall on the *Powdery Mildew* class  
+    *Validation:* Evaluate on the held-out test set, compute recall with a 95 % CI, and perform a one-sample t-test against the 50 % random-guess baseline (α = 0.05).
 
     2. **Image Variance Hypothesis**  
-       Powdery mildew leaves exhibit higher pixel-intensity variance than healthy leaves  
-       *Validation:* Compute per-image variance for each class and apply a two-sample t-test (α = 0.05).
+    Powdery mildew leaves exhibit higher pixel-intensity variance than healthy leaves  
+    *Validation:* Compute per-image variance for each class and apply a two-sample (Welch’s) t-test (α = 0.05).
+
+    3. **Image Mean Intensity Hypothesis**  
+    The mean pixel-intensity of mildew-infected leaves differs from that of healthy leaves  
+    *Validation:* Compute per-image mean intensity and apply a two-sample (Welch’s) t-test (α = 0.05).
+
+    4. **Learning-Rate & EarlyStopping Hypothesis**  
+    Lowering the learning rate to 1 × 10⁻⁴ *and* using EarlyStopping yields smoother convergence and higher final validation accuracy than the initial higher learning rate run.  
+    *Validation:* Compare Run 1 (LR = 1 × 10⁻³, no EarlyStopping) vs Run 2 (LR = 1 × 10⁻⁴, EarlyStopping) learning curves; quantify oscillations and plateau onset via epoch-wise val_loss variance and peak val_accuracy.
     """)
 
     # load live metrics
