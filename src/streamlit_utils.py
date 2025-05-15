@@ -1,11 +1,13 @@
 import json, pickle, pandas as pd
 from pathlib import Path
 import streamlit as st
-from tensorflow.keras.models import load_model
+from src.model_utils import get_or_download_model
 
 @st.cache_resource
 def get_model(version="v1"):
-    return load_model(Path("models")/"run2_model.h5")
+    file_id   = "1ui6d2t-dTrq2kbgF0OFPta7KJc2E3cYE"
+    model_path = Path("models") / "run2_model.h5"
+    return get_or_download_model(file_id, model_path)
 
 @st.cache_data
 def load_metrics(version="v1"):

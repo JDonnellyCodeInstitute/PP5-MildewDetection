@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from PIL import Image
-from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 import plotly.graph_objects as go
 
