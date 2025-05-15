@@ -8,6 +8,7 @@ from app_pages.preprocessing_playground import page_preprocessing_playground_bod
 from app_pages.training_dashboard import page_training_dashboard_body
 from app_pages.validation_insights import page_validation_insights_body
 from app_pages.diagnosis_station import page_diagnosis_station_body
+from app_pages.hypotheses_validation import page_hypotheses_validation_body
 
 def main():
     # Create an instance of the app
@@ -20,6 +21,7 @@ def main():
     app.add_page("Training Dashboard", page_training_dashboard_body)
     app.add_page("Validation Insights", page_validation_insights_body)
     app.add_page("Diagnosis Station", page_diagnosis_station_body)
+    app.add_page("Hypotheses Validation", page_hypotheses_validation_body)
 
     # Run app
     app.run()

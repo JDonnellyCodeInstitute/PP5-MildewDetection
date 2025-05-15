@@ -44,3 +44,9 @@ def load_confusion_matrix_image(version="v1"):
 def load_history(version="v1"):
     path = Path("outputs") / version / "history_run2.json"
     return json.loads(path.read_text())
+
+@st.cache_data
+def load_tests(version="v1"):
+    path = Path("outputs") / version / "hypothesis_tests.json"
+    text = path.read_text()
+    return json.loads(text)

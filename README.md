@@ -108,7 +108,11 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
    - Confusion matrix image, success/failure alert (live recall), pixel-variance boxplot, next-steps expander
 
-6. **Diagnosis Station**
+6. **Hypotheses Validation**
+
+   - Welch’s t-tests on pixel mean & variance and a one-sample t-test on model recall, with p-values and conclusions.
+
+7. **Diagnosis Station**
 
    - File uploader, threshold slider, prediction gauge, batch results table + CSV download
 
