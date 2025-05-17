@@ -77,10 +77,49 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - Accuracy ≥ 0.95  
 - F1-score ≥ 0.90  
 - **Success Metrics:**  
-- Primary: test-set recall on mildew class  
+- Primary: test-set recall on mildew class
 - Secondary: overall accuracy, confusion matrix, classification report  
 - **Data:** 256×256 px RGB images, augmented (rotation, shifts, zoom, flips).  
 - **Reproducibility:** seeded data splits and augmentation.
+
+---
+
+## Epics and User Stories
+
+- The project was organised into five Epics aligned with our CRISP-DM phases; under each Epic are User Stories to drive an agile workflow.
+
+### Epic – Data Collection & Ingestion
+
+- **User Story** – As a data engineer, I can fetch the cherry-leaf dataset from Kaggle so that I have all images available locally.
+- **User Story** – As a data engineer, I can remove any non-image files so that my dataset contains only valid leaf images.
+
+### Epic – Data Understanding & Visualisation
+
+- **User Story** – As an agronomist, I can view class-count bar charts so I can confirm healthy vs. mildew samples are balanced (Business Requirement 1).
+- **User Story** – As a data scientist, I can explore image-shape distributions, mean & variance maps, and difference heat-maps to uncover key visual patterns.
+- **User Story** – As a domain expert, I can browse random sample montages to qualitatively inspect powdery-mildew symptoms.
+
+### Epic – Modelling & Evaluation
+
+- **User Story** – As a machine-learning engineer, I can build and augment a CNN pipeline to classify leaves as healthy or powdery-mildew.
+- **User Story** – As a data scientist, I can compare two training runs (different learning rates and EarlyStopping) to select the best configuration (Hypothesis 4).
+- **User Story** – As a statistician, I can evaluate test-set recall on mildew images, generate a confusion matrix, and run statistical tests to verify model recall ≥ 90 %(Hypothesis 1).
+- **User Story** – As a data analyst, I can perform t-tests on pixel mean and variance to validate that mildew-infected leaves differ significantly from healthy ones (Hypotheses 2 & 3).
+
+### Epic – Dashboard Planning & Development
+
+- **User Story** – As a non-technical user, I can read a Project Charter page with objectives, user stories, hypotheses, and a live recall gauge.
+- **User Story** – As an analyst, I can interact with the Leaf Atlas to filter classes, view histograms/scatter plots, and see sample collages.
+- **User Story** – As a model developer, I can experiment with augmentation parameters in the Preprocessing Playground and see immediate visual feedback.
+- **User Story** – As a reviewer, I can explore the Training Dashboard plots (loss/accuracy curves and top epochs) to understand convergence behaviour.
+- **User Story** – As a stakeholder, I can examine Validation & Insights—a confusion matrix, variance boxplot, and recall-target alert—to decide if the model meets business needs.
+- **User Story** – As an end user, I can upload new leaf images in the Diagnosis Station, adjust the decision threshold, view confidence gauges, and download batch results.
+
+### Epic – Deployment & Documentation
+
+- **User Story** – As a developer, I can follow the README instructions and included setup scripts to deploy the dashboard on Render.
+- **User Story** – As a collaborator, I can clone the repo, install dependencies (including requests/gdown), and run the app locally.
+- **User Story** – As a project manager, I can read these epics and user stories in the README to quickly understand project scope and deliverables.
 
 ---
 
