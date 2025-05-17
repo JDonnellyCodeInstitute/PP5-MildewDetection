@@ -197,6 +197,75 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
+## Testing
+
+#### User Story Testing
+
+- Dashboard pages were manually tested using the user stories as acceptance criteria.
+- Jupyter notebooks were assumed correct if their final outputs (saved figures, CSV/JSON artifacts, model files) were produced without errors—manual testing against notebook user stories was not performed.
+
+---
+
+*As a non-technical user, I can view a project summary that describes the project, dataset and business requirements to understand the project at a glance.*
+
+| Feature               | Action                       | Expected Result                                                                                | Actual Result     |
+|-----------------------|------------------------------|------------------------------------------------------------------------------------------------|-------------------|
+| Project Charter page  | Navigate via sidebar         | Page loads with overview, objectives, hypotheses and live recall gauge                         | Functions as intended |
+
+---
+
+*As an analyst, I can explore per-image statistics and sample collages in the Leaf Atlas (Business Requirement 1).*
+
+| Feature            | Action                       | Expected Result                                                                                         | Actual Result     |
+|--------------------|------------------------------|---------------------------------------------------------------------------------------------------------|-------------------|
+| Leaf Atlas page    | Navigate via sidebar         | Histogram, scatter and collage widgets appear and respond to class‐filter and sample‐size controls      | Functions as intended |
+
+---
+
+*As a model developer, I can experiment with augmentation parameters and preview results in the Preprocessing Playground.*
+
+| Feature                         | Action                                  | Expected Result                                                          | Actual Result     |
+|---------------------------------|-----------------------------------------|--------------------------------------------------------------------------|-------------------|
+| Preprocessing Playground page   | Navigate via sidebar                    | Sliders/checkboxes appear in sidebar                                     | Functions as intended |
+|                                 | Adjust rotation, zoom, shifts or flips  | Raw vs. augmented images update accordingly in real time                 | Functions as intended |
+
+---
+
+*As a reviewer, I can inspect training and validation curves and top epochs in the Training Dashboard.*
+
+| Feature                       | Action                       | Expected Result                                                         | Actual Result     |
+|-------------------------------|------------------------------|-------------------------------------------------------------------------|-------------------|
+| Training Dashboard page      | Navigate via sidebar         | Line chart of loss/accuracy and bar chart of top-5 epochs are displayed | Functions as intended |
+|                               | Switch metric selector       | Plot updates between loss and accuracy                                   | Functions as intended |
+
+---
+
+*As a stakeholder, I can examine the confusion matrix, recall alert and variance boxplot in Validation & Insights (Business Requirement 2).*
+
+| Feature                     | Action                        | Expected Result                                                                         | Actual Result     |
+|-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------|-------------------|
+| Validation & Insights page | Navigate via sidebar          | Confusion matrix image, success/failure recall alert, and variance boxplot are displayed | Functions as intended |
+
+---
+
+*As a statistician, I can review our statistical tests on pixel statistics and model recall in Hypotheses Validation.*
+
+| Feature                       | Action                       | Expected Result                                                                                 | Actual Result     |
+|-------------------------------|------------------------------|-------------------------------------------------------------------------------------------------|-------------------|
+| Hypotheses Validation page    | Navigate via sidebar         | Test statistics and p-values for variance, mean and recall appear with plain-English explanations| Functions as intended |
+
+---
+
+*As an end user, I can upload new leaf images, adjust threshold, view confidence gauges and download CSV in the Diagnosis Station.*
+
+| Feature                     | Action                       | Expected Result                                                                              | Actual Result     |
+|-----------------------------|------------------------------|----------------------------------------------------------------------------------------------|-------------------|
+| Diagnosis Station page     | Navigate via sidebar         | File uploader, threshold slider and placeholders for images/gauges are displayed             | Functions as intended |
+|                             | Upload one or more images    | Each image is shown with a confidence gauge and raw probability                             | Functions as intended |
+|                             | Download batch results CSV   | ‘Download results as CSV’ button produces a downloadable CSV of predictions                 | Functions as intended |
+
+---
+
 ## Credits
 
 ### Content
