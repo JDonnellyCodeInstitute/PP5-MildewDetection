@@ -287,6 +287,7 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - Gauge plot guidlines from [Plotly](https://plotly.com/python/gauge-charts/)
 - Streamlit data cache decorator [st.cache_data](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data)
 - Easy implementation of interactive plotly charts via Streamlit [st.plotly_chart](https://docs.streamlit.io/develop/api-reference/charts/st.plotly_chart)
+- [Keras guide on binary classification](https://keras.io/examples/).
 
 ### Media
 
