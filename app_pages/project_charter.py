@@ -26,13 +26,28 @@ def page_project_charter_body():
         """
     )
 
+    # Link to the Kaggle dataset
+    st.markdown(
+        """
+        **Dataset Source:**  
+        [Cherry Leaves Dataset on Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves)  
+        """
+    )
+
     # Objectives & User Stories
     st.subheader("Objectives & User Stories")
     st.markdown("""
-    - **Objective 1:** Visually explore differences between healthy and infected leaves  
-      - *User Story:* As an agronomist, I want side-by-side comparisons of leaf samples so I can understand key visual indicators of powdery mildew.  
-    - **Objective 2:** Automate detection with high accuracy  
-      - *User Story:* As a farm manager, I want the model to flag infected leaves with ≥ 90 % recall so that I can prioritize treatment quickly.
+    - **Objective 1:** Ingest and prepare the cherry-leaf dataset
+      - *User Story:* As a data engineer, I want to fetch and clean the dataset so that only valid leaf images remain ready for analysis.
+
+    - **Objective 2:** Visually explore differences between healthy and infected leaves
+      - *User Story:* As an agronomist, I want side-by-side comparisons, statistical summaries and montages so I can understand key visual mildew indicators.
+
+    - **Objective 3:** Validate key hypotheses with statistical rigour
+      - *User Story:* As a statistician, I want to see t-tests on pixel mean, variance and model recall so I can be confident our findings are significant.
+
+    - **Objective 4:** Automate detection with high accuracy and usability
+      - *User Story:* As a farm manager, I want the model to flag infected leaves with ≥ 90 % recall and an interactive interface to upload new images and download results.
     """)
 
     # Hypotheses
