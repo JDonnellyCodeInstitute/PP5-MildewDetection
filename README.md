@@ -32,6 +32,9 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
   - [Unfixed Bugs](#unfixed-bugs)
   - [Deployment](#deployment)
     - [Render](#render)
+  - [Forking \& Cloning the Repository](#forking--cloning-the-repository)
+    - [Creating a Fork](#creating-a-fork)
+    - [Cloning to Your Local Machine](#cloning-to-your-local-machine)
   - [Main Data Analysis \& ML Libraries](#main-data-analysis--ml-libraries)
   - [Testing](#testing)
     - [User Story Testing](#user-story-testing)
@@ -239,6 +242,37 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 7. No environment variables are required.
 8. Select **Manual Deploy** then **Deploy Latest Commit**.
 9. Once "Live" turns green, the URL provided will allow you to access the deployed project.
+
+[⬆ Back to Contents](#contents)
+
+---
+
+## Forking & Cloning the Repository
+
+Use the steps below to create your own copy of this project and work on it locally.
+
+### Creating a Fork
+
+1. Navigate to the repository’s main page on GitHub.  
+2. Click the **Fork** button in the top-right corner.  
+3. Choose your GitHub account (or organisation) as the destination.  
+4. *Optional:* Rename the fork if you want to distinguish it from the original.  
+5. *Optional:* Add a brief description for your fork.  
+6. Click **Create fork** and wait for GitHub to finish copying the repo.
+
+### Cloning to Your Local Machine
+
+1. Go to your newly-forked repository on GitHub.  
+2. Click the green **Code** button and copy the HTTPS URL.  
+3. Open a terminal (or your IDE’s integrated console) and cd into the folder where you’d like the project to live.  
+4. Run:
+
+   ```bash
+   git clone https://github.com/<your-username>/PP5-MildewDetection.git
+   ```
+
+5. Press Enter and wait for the clone to complete.
+6. Change into the project directory:
 
 [⬆ Back to Contents](#contents)
 
