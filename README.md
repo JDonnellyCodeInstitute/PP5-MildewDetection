@@ -59,12 +59,23 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
-## Rationale: Mapping Business Requirements to Tasks
+## The rationale to map the Business Requirements to the Data Visualisations and ML tasks
 
-| Business Requirement             | Data Visualization                                        | ML Task                                                         |
-|----------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------|
-| Visual Study                     | Class-counts bar, image-shape scatter, montages           | —                                                               |
-| Automated Detection (≥ 90 % R)   | Learning curves, confusion matrix, live recall gauge      | Build & tune CNN with EarlyStopping; save model & metrics JSON |
+- **Business Requirement 1: Visual Study**  
+  - We need to confirm that our dataset is balanced so the model isn’t biased towards one class → **Class-count bar chart**.  
+  - We must ensure all images share consistent dimensions to avoid distortions in training → **Width vs. height scatter plot**.  
+  - We want to uncover average colour/texture patterns that distinguish healthy vs. diseased leaves → **Per-class mean & variability maps**.  
+  - We need to highlight precisely where powdery mildew alters pixel intensity → **Difference heat-map (mildew minus healthy)**.  
+  - We ought to qualitatively inspect real examples to validate labelling and feature presence → **Random sample montages**.  
+  - **Implemented in Notebook 2: Data Visualisation & Leaf Atlas page.**
+
+- **Business Requirement 2: Automated Detection (≥ 90 % recall)**  
+  - We must build a robust CNN that can classify a 256×256 leaf image in under 1 s → **Custom 3-block CNN with BatchNorm, Dropout**.  
+  - We require strong generalisation to new field conditions → **ImageDataGenerator augmentations** (rotation, zoom, shifts, flips).  
+  - We need to find the optimal learning rate and stopping criteria to smooth convergence → **Run 1 vs Run 2 learning-rate comparison + EarlyStopping**.  
+  - We must measure model performance on held-out data and verify recall on the mildew class → **Confusion matrix**, **classification report**, **live recall gauge**.  
+  - We want end-users to upload new images and receive predictions with confidence → **Diagnosis Station page** (uploader, threshold slider, confidence gauges, CSV export).  
+  - **Implemented in Notebook 3: Modelling & Evaluating and Notebook 4: Hypothesis Testing, plus Streamlit pages Training Dashboard, Validation & Insights, Hypotheses Validation, and Diagnosis Station.**
 
 ---
 
