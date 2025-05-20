@@ -13,6 +13,35 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
+## Contents
+
+- [Cherry Leaf Powdery Mildew Detector](#cherry-leaf-powdery-mildew-detector)
+  - [Contents](#contents)
+  - [Dataset Content](#dataset-content)
+  - [Business Requirements](#business-requirements)
+  - [Hypotheses \& Validation](#hypotheses--validation)
+  - [The rationale to map the Business Requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+  - [ML Business Case](#ml-business-case)
+  - [Epics and User Stories](#epics-and-user-stories)
+    - [Epic – Data Collection \& Ingestion](#epic--data-collection--ingestion)
+    - [Epic – Data Understanding \& Visualisation](#epic--data-understanding--visualisation)
+    - [Epic – Modelling \& Evaluation](#epic--modelling--evaluation)
+    - [Epic – Dashboard Planning \& Development](#epic--dashboard-planning--development)
+    - [Epic – Deployment \& Documentation](#epic--deployment--documentation)
+  - [Dashboard Design](#dashboard-design)
+  - [Unfixed Bugs](#unfixed-bugs)
+  - [Deployment](#deployment)
+    - [Render](#render)
+  - [Main Data Analysis \& ML Libraries](#main-data-analysis--ml-libraries)
+  - [Testing](#testing)
+    - [User Story Testing](#user-story-testing)
+    - [Code Style Validator](#code-style-validator)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+
+---
+
 ## Dataset Content
 
 - **Source:** Kaggle – [codeinstitute/cherry-leaves](https://www.kaggle.com/codeinstitute/cherry-leaves)  
@@ -210,7 +239,7 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ## Testing
 
-#### User Story Testing
+### User Story Testing
 
 - Dashboard pages were manually tested using the user stories as acceptance criteria.
 - Jupyter notebooks were assumed correct if their final outputs (saved figures, CSV/JSON artifacts, model files) were produced without errors—manual testing against notebook user stories was not performed.
@@ -277,7 +306,7 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
-#### Code Style Validator
+### Code Style Validator
 
 We ran **Flake8** over our application code (excluding long-line checks) to ensure there were no other style or syntax issues:
 
