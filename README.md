@@ -277,6 +277,22 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
 ---
 
+#### Code Style Validator
+
+We ran **Flake8** over our application code (excluding long-line checks) to ensure there were no other style or syntax issues:
+
+```bash
+flake8 src/ app_pages/ --ignore=E501
+```
+
+- E501 (line-too-long) was deliberately ignored, since most long lines are user-facing strings in the Streamlit UI and do not impact functionality.
+
+- Result: No other warnings or errors were reported, confirming our code conforms to PEP8 style guidelines outside of permitted long strings.
+
+![Validator Screenshot](assets/img/pp5-validator.png)
+
+---
+
 ## Credits
 
 ### Content
