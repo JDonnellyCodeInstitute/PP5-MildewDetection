@@ -2,6 +2,12 @@ import streamlit as st
 
 class MultiPage:
     def __init__(self, app_name: str) -> None:
+        """
+        Initialize the MultiPage application.
+
+        Args:
+            app_name (str): The name of the application, used for the page title and icon.
+        """
         self.pages = []
         self.app_name = app_name
         st.set_page_config(page_title=self.app_name, page_icon="🍒")

@@ -84,6 +84,19 @@ def split_dataset(data_dir, train_ratio, val_ratio, test_ratio):
         print(f"Class '{cls}': train={n_train}, validation={n_val}, test={n_test}")
     
 def fetch_kaggle_dataset(kaggle_path, dest_folder):
+    """
+    Download and extract a dataset from Kaggle.
+
+    This function uses the Kaggle API to download the specified dataset
+    as a ZIP file into `dest_folder`, then unpacks it and removes the ZIP.
+
+    Args:
+        kaggle_path (str): The Kaggle dataset identifier, e.g. "user/dataset-name".
+        dest_folder (str or Path): Local directory where the dataset will be downloaded and extracted.
+
+    Raises:
+        OSError: If authentication fails or the Kaggle API cannot access the dataset.
+    """
     import zipfile
     from kaggle.api.kaggle_api_extended import KaggleApi
     api = KaggleApi(); api.authenticate()
