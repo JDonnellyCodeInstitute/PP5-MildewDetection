@@ -57,6 +57,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 2. Split into train/validation/test with a fixed seed for reproducibility
 3. Verify class balance via counts
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ## Business Requirements
@@ -65,6 +67,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
  Agronomists need side-by-side comparisons of healthy vs. infected leaves to understand mildew indicators.  
 2. **Automated Detection:**  
  A real-time CNN must classify a leaf image as *Healthy* or *Powdery Mildew* in under 1 s, achieving ≥ 90 % recall on the mildew class to guide rapid treatment across thousands of trees.
+
+[⬆ Back to Contents](#contents)
 
 ---
 
@@ -86,6 +90,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
    **Lowering** the learning rate to 1 × 10⁻⁴ **and** using EarlyStopping produces **smoother convergence** and **higher final validation accuracy** than the initial higher learning rate.  
    **Validation:** Compare Run 1 (LR = 1 × 10⁻³, no EarlyStopping) vs. Run 2 (LR = 1 × 10⁻⁴, EarlyStopping) learning curves; quantify oscillations and plateau onset via epoch-wise val_loss variance and peak val_accuracy.
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ## The rationale to map the Business Requirements to the Data Visualisations and ML tasks
@@ -106,6 +112,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
   - We want end-users to upload new images and receive predictions with confidence → **Diagnosis Station page** (uploader, threshold slider, confidence gauges, CSV export).  
   - **Implemented in Notebook 3: Modelling & Evaluating and Notebook 4: Hypothesis Testing, plus Streamlit pages Training Dashboard, Validation & Insights, Hypotheses Validation, and Diagnosis Station.**
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ## ML Business Case
@@ -121,6 +129,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - Secondary: overall accuracy, confusion matrix, classification report  
 - **Data:** 256×256 px RGB images, augmented (rotation, shifts, zoom, flips).  
 - **Reproducibility:** seeded data splits and augmentation.
+
+[⬆ Back to Contents](#contents)
 
 ---
 
@@ -161,6 +171,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - **User Story** – As a collaborator, I can clone the repo, install dependencies (including requests/gdown), and run the app locally.
 - **User Story** – As a project manager, I can read these epics and user stories in the README to quickly understand project scope and deliverables.
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ## Dashboard Design
@@ -195,6 +207,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 
    - File uploader, threshold slider, prediction gauge, batch results table + CSV download
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ## Unfixed Bugs
@@ -202,6 +216,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - **IDE lint warnings** on `tensorflow.keras` imports—safe to ignore if environment is correct.  
 - **Model file size** tracked via `.gitignore` and external load pattern.  
 - **Collage layout** may shift slightly depending on sample count—acceptable for current scope.
+
+[⬆ Back to Contents](#contents)
 
 ---
 
@@ -224,6 +240,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 8. Select **Manual Deploy** then **Deploy Latest Commit**.
 9. Once "Live" turns green, the URL provided will allow you to access the deployed project.
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ## Main Data Analysis & ML Libraries
@@ -234,6 +252,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 - **Plotly Express & Graph Objects:** interactive charts  
 - **Seaborn / Matplotlib:** static visualizations  
 - **Streamlit:** dashboard framework, caching, widgets  
+
+[⬆ Back to Contents](#contents)
 
 ---
 
@@ -304,6 +324,8 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
 |                             | Upload one or more images    | Each image is shown with a confidence gauge and raw probability                             | Functions as intended |
 |                             | Download batch results CSV   | ‘Download results as CSV’ button produces a downloadable CSV of predictions                 | Functions as intended |
 
+[⬆ Back to Contents](#contents)
+
 ---
 
 ### Code Style Validator
@@ -319,6 +341,8 @@ flake8 src/ app_pages/ --ignore=E501
 - Result: No other warnings or errors were reported, confirming our code conforms to PEP8 style guidelines outside of permitted long strings.
 
 ![Validator Screenshot](assets/img/pp5-validator.png)
+
+[⬆ Back to Contents](#contents)
 
 ---
 
@@ -338,5 +362,7 @@ flake8 src/ app_pages/ --ignore=E501
 
 - Cherry-leaf images sourced from Kaggle: `codeinstitute/cherry-leaves`.  
 - Icons via Unicode and Plotly defaults.
+
+[⬆ Back to Contents](#contents)
 
 ---
