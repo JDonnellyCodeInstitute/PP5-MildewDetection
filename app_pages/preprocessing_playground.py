@@ -7,21 +7,20 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_arra
 # cache the list of training image paths
 from src.streamlit_utils import load_train_paths
 
+
 def page_preprocessing_playground_body():
     st.title("Preprocessing Playground")
 
-    st.info(
-            """
-            **What you’re seeing:**  
-            This page lets you experiment with our image-augmentation parameters (rotation, zoom, shifts, flips)  
-            and see how they affect real cherry-leaf photos. Adjust the controls in the sidebar, then compare the  
-            raw image (left) with a single augmented example (right).  
-            
-            **Why it matters:**  
-            Augmentations help the model generalize to new lighting, orientations, and leaf shapes—crucial for  
+    st.info("""
+            **What you’re seeing:**
+            This page lets you experiment with our image-augmentation parameters (rotation, zoom, shifts, flips)
+            and see how they affect real cherry-leaf photos. Adjust the controls in the sidebar, then compare the
+            raw image (left) with a single augmented example (right).
+
+            **Why it matters:**
+            Augmentations help the model generalize to new lighting, orientations, and leaf shapes—crucial for
             robust mildew detection in the field.
-            """
-        )
+            """)
 
     st.markdown("---")
 
@@ -34,13 +33,13 @@ def page_preprocessing_playground_body():
     h_flip = st.sidebar.checkbox("Horizontal flip", True)
     v_flip = st.sidebar.checkbox("Vertical flip", False)
 
-    st.markdown(f"**Rotation:** ±{rotation}° &nbsp;&nbsp; **Zoom:** ±{zoom*100:.0f}%&nbsp;&nbsp;"
-                f"**Width shift:** ±{width_shift*100:.0f}%&nbsp;&nbsp;"
-                f"**Height shift:** ±{height_shift*100:.0f}%")
+    st.markdown(f"**Rotation:** ± {rotation}° &nbsp;&nbsp; **Zoom:** ± {zoom * 100:.0f}%&nbsp;&nbsp;"
+                f"**Width shift:** ± {width_shift * 100:.0f}%&nbsp;&nbsp;"
+                f"**Height shift:** ± {height_shift * 100:.0f}%")
 
     # Build ImageDataGenerator
     datagen = ImageDataGenerator(
-        rescale=1/255.0,
+        rescale=1 / 255.0,
         rotation_range=rotation,
         zoom_range=zoom,
         width_shift_range=width_shift,

@@ -6,20 +6,21 @@ from PIL import Image
 # cache stats load and sample paths
 from src.streamlit_utils import load_image_stats, list_image_paths
 
+
 def page_leaf_atlas_body():
     st.title("Leaf Atlas")
 
     st.info(
         """
-        **What you’re seeing:**  
-        This page visualises per-image statistics (mean and variance of pixel intensities)  
-        for healthy vs. powdery-mildew leaves. Use the histogram and scatter plots to compare  
-        how texture varies between classes, then browse randomly sampled images to see  
+        **What you’re seeing:**
+        This page visualises per-image statistics (mean and variance of pixel intensities)
+        for healthy vs. powdery-mildew leaves. Use the histogram and scatter plots to compare
+        how texture varies between classes, then browse randomly sampled images to see
         real examples from the dataset.
-        
-        **How to interact:**  
-        - **Histogram:** Hover or click legend items to focus on one class and inspect counts by variance.  
-        - **Scatter:** Zoom or pan to examine trends in mean vs. variance.  
+
+        **How to interact:**
+        - **Histogram:** Hover or click legend items to focus on one class and inspect counts by variance.
+        - **Scatter:** Zoom or pan to examine trends in mean vs. variance.
         - **Sample Collage:** Adjust the slider to show more or fewer random training images per class.
         """
     )

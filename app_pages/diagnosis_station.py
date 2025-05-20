@@ -5,18 +5,19 @@ from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array
 import plotly.graph_objects as go
 # Cache helpers
-from src.streamlit_utils import get_model, load_class_indices, load_image_shape
+from src.streamlit_utils import get_model, load_image_shape
+
 
 def page_diagnosis_station_body():
     st.title("Diagnosis Station")
     st.info(
         """
-        **What you’re seeing:**  
+        **What you’re seeing:**
         Upload one or more leaf images to get instant Healthy vs. Powdery Mildew predictions with confidence scores.
-        
-        **How to interact:**  
-        - Drag & drop PNG/JPG files or click “Browse files”  
-        - Adjust the decision threshold to tune sensitivity  
+
+        **How to interact:**
+        - Drag & drop PNG/JPG files or click “Browse files”
+        - Adjust the decision threshold to tune sensitivity
         - Download a CSV of your batch results for record-keeping
         """
     )
@@ -24,7 +25,9 @@ def page_diagnosis_station_body():
 
     # Upload
     uploaded = st.file_uploader(
-        "Upload leaf images", type=["png","jpg","jpeg"], accept_multiple_files=True
+        "Upload leaf images",
+        type=["png", "jpg", "jpeg"],
+        accept_multiple_files=True
     )
     threshold = st.slider(
         "Decision threshold for mildew class", 0.0, 1.0, 0.5, 0.01
@@ -32,7 +35,6 @@ def page_diagnosis_station_body():
 
     if uploaded:
         model = get_model()
-        class_idx = load_class_indices()
         shape = load_image_shape()
 
         results = []
@@ -84,7 +86,7 @@ def page_diagnosis_station_body():
                         'tickformat': '.0f'
                     }
                 },
-                title={'text': f"Confidence: {label.replace('_',' ').title()}"}
+                title={'text': f"Confidence: {label.replace('_', ' ').title()}"}
             ))
 
             # Bug fix: gives each chart a unique key to avoid duplicate-element errors

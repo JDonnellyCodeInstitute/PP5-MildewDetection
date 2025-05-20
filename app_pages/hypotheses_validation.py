@@ -1,15 +1,26 @@
 import streamlit as st
 from src.streamlit_utils import load_tests
 
+
 def page_hypotheses_validation_body():
     st.title("Hypotheses Validation")
     st.markdown(
         """
         On this page, we check three core assumptions ("hypotheses") about our data and model:
 
-        1. **Do powdery-mildew leaves show more variation in pixel brightness than healthy leaves?**  
-        2. **Is the average brightness of mildew-infected leaves different from healthy ones?**  
-        3. **Does our model recall infected leaves significantly better than random guessing?**  
+        1. **Do powdery-mildew leaves show more variation in pixel brightness than healthy leaves?**
+        2. **Is the average brightness of mildew-infected leaves different from healthy ones?**
+        3. **Does our model recall infected leaves significantly better than random guessing?**
+        """
+    )
+
+    st.info(
+        """
+        **Note:** Hypothesis 4 (that lowering the learning rate and using EarlyStopping
+        yields smoother convergence and higher validation accuracy) was already
+        evaluated in **Notebook 03: Modelling & Evaluating** and in the
+        Training Dashboard. This page focuses on the remaining statistical tests
+        (Hypotheses 1–3).
         """
     )
 
@@ -19,14 +30,14 @@ def page_hypotheses_validation_body():
     st.header("1. Pixel Variance Hypothesis")
     st.markdown(
         """
-        **What we tested:**  
-        Whether the tiny spots and texture changes in mildew leaves create **more variation**  
+        **What we tested:**
+        Whether the tiny spots and texture changes in mildew leaves create **more variation**
         in pixel brightness than on healthy leaves.
 
-        **How we tested it:**  
+        **How we tested it:**
         We ran a statistical test (Welch’s t-test) on the per-image brightness variances.
 
-        **Result:**  
+        **Result:**
         """
     )
     t_var = tests["t_var"]
@@ -49,13 +60,13 @@ def page_hypotheses_validation_body():
     st.header("2. Pixel Mean Intensity Hypothesis")
     st.markdown(
         """
-        **What we tested:**  
+        **What we tested:**
         If the **average brightness** of mildew-infected leaves differs from that of healthy leaves.
 
-        **How we tested it:**  
+        **How we tested it:**
         A two-sample t-test comparing the mean pixel intensities of each class.
 
-        **Result:**  
+        **Result:**
         """
     )
     t_mean = tests["t_mean"]
@@ -78,14 +89,14 @@ def page_hypotheses_validation_body():
     st.header("3. Model Recall Hypothesis")
     st.markdown(
         """
-        **What we tested:**  
+        **What we tested:**
         Whether our model’s ability to correctly identify mildew images (**recall**) beats a **50% random baseline**.
 
-        **How we tested it:**  
-        We treated each mildew test image as a “correct” (1) or “incorrect” (0) prediction  
+        **How we tested it:**
+        We treated each mildew test image as a “correct” (1) or “incorrect” (0) prediction
         and ran a one-sample t-test against the value 0.5 (random guessing).
 
-        **Result:**  
+        **Result:**
         """
     )
     t_rec = tests["t_rec"]

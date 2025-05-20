@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 class MultiPage:
     def __init__(self, app_name: str) -> None:
         """
@@ -20,4 +21,4 @@ class MultiPage:
         """Renders the sidebar and runs the selected page."""
         st.title(self.app_name)
         page = st.sidebar.radio("Navigation", self.pages, format_func=lambda p: p["title"])
-        page["function"]() 
+        page["function"]()

@@ -1,5 +1,8 @@
 from pathlib import Path
-import shutil, random, os
+import shutil
+import random
+import os
+
 
 def clean_image_dataset(root_dir, extensions=None):
     """
@@ -28,6 +31,7 @@ def clean_image_dataset(root_dir, extensions=None):
 
         print(f"Subfolder '{subfolder.name}': kept {kept} images, removed {removed} non-images")
 
+
 def split_dataset(data_dir, train_ratio, val_ratio, test_ratio):
     """
     Split each class‑folder under data_dir into train/validation/test
@@ -41,8 +45,7 @@ def split_dataset(data_dir, train_ratio, val_ratio, test_ratio):
     # Find class folders skipping any existing split directories
     classes = [
         d for d in os.listdir(data_dir)
-        if os.path.isdir(os.path.join(data_dir, d))
-           and d not in ('train', 'validation', 'test')
+        if os.path.isdir(os.path.join(data_dir, d)) and d not in ('train', 'validation', 'test')
     ]
 
     # Create train/validation/test subfolders for each class
@@ -53,13 +56,13 @@ def split_dataset(data_dir, train_ratio, val_ratio, test_ratio):
     # Shuffle and move
     for cls in classes:
         cls_path = os.path.join(data_dir, cls)
-        files = sorted(os.listdir(cls_path)) # Sorted for reproducibility
+        files = sorted(os.listdir(cls_path))  # Sorted for reproducibility
         random.shuffle(files)
 
         total = len(files)
         n_train = int(total * train_ratio)
-        n_val   = int(total * val_ratio)
-        n_test  = int(total * test_ratio)
+        n_val = int(total * val_ratio)
+        n_test = int(total * test_ratio)
 
         for i, fname in enumerate(files):
             src = os.path.join(cls_path, fname)
@@ -82,7 +85,8 @@ def split_dataset(data_dir, train_ratio, val_ratio, test_ratio):
 
         # Feedback exact counts
         print(f"Class '{cls}': train={n_train}, validation={n_val}, test={n_test}")
-    
+
+
 def fetch_kaggle_dataset(kaggle_path, dest_folder):
     """
     Download and extract a dataset from Kaggle.
@@ -99,8 +103,9 @@ def fetch_kaggle_dataset(kaggle_path, dest_folder):
     """
     import zipfile
     from kaggle.api.kaggle_api_extended import KaggleApi
-    api = KaggleApi(); api.authenticate()
+    api = KaggleApi()
+    api.authenticate()
     api.dataset_download_files(kaggle_path, path=dest_folder, unzip=False)
-    with zipfile.ZipFile(f"{dest_folder}/{kaggle_path.split('/')[-1]}.zip","r") as z:
+    with zipfile.ZipFile(f"{dest_folder}/{kaggle_path.split('/')[-1]}.zip", "r") as z:
         z.extractall(dest_folder)
     os.remove(f"{dest_folder}/{kaggle_path.split('/')[-1]}.zip")

@@ -4,6 +4,7 @@ import plotly.graph_objects as go
 # cached loader for metrics.json
 from src.streamlit_utils import load_metrics
 
+
 def page_project_charter_body():
     # Header
     st.title("🍒 Cherry Leaf Powdery Mildew Detector Project Charter")
@@ -25,8 +26,8 @@ def page_project_charter_body():
     # Link to the Kaggle dataset
     st.markdown(
         """
-        **Dataset Source:**  
-        [Cherry Leaves Dataset on Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves)  
+        **Dataset Source:**
+        [Cherry Leaves Dataset on Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves)
         """
     )
 
@@ -49,25 +50,25 @@ def page_project_charter_body():
     # Hypotheses
     st.subheader("Project Hypotheses & Validation")
     st.markdown("""
-    1. **Model Accuracy Hypothesis**  
-    A CNN fine-tuned on cherry-leaf images will achieve ≥ 90 % recall on the *Powdery Mildew* class  
+    1. **Model Accuracy Hypothesis**
+    A CNN fine-tuned on cherry-leaf images will achieve ≥ 90 % recall on the *Powdery Mildew* class
     *Validation:* Evaluate on the held-out test set, compute recall with a 95 % CI, and perform a one-sample t-test against the 50 % random-guess baseline (α = 0.05).
 
-    2. **Image Variance Hypothesis**  
-    Powdery mildew leaves exhibit higher pixel-intensity variance than healthy leaves  
+    2. **Image Variance Hypothesis**
+    Powdery mildew leaves exhibit higher pixel-intensity variance than healthy leaves
     *Validation:* Compute per-image variance for each class and apply a two-sample (Welch’s) t-test (α = 0.05).
 
-    3. **Image Mean Intensity Hypothesis**  
-    The mean pixel-intensity of mildew-infected leaves differs from that of healthy leaves  
+    3. **Image Mean Intensity Hypothesis**
+    The mean pixel-intensity of mildew-infected leaves differs from that of healthy leaves
     *Validation:* Compute per-image mean intensity and apply a two-sample (Welch’s) t-test (α = 0.05).
 
-    4. **Learning-Rate & EarlyStopping Hypothesis**  
-    Lowering the learning rate to 1 × 10⁻⁴ *and* using EarlyStopping yields smoother convergence and higher final validation accuracy than the initial higher learning rate run.  
+    4. **Learning-Rate & EarlyStopping Hypothesis**
+    Lowering the learning rate to 1 × 10⁻⁴ *and* using EarlyStopping yields smoother convergence and higher final validation accuracy than the initial higher learning rate run.
     *Validation:* Compare Run 1 (LR = 1 × 10⁻³, no EarlyStopping) vs Run 2 (LR = 1 × 10⁻⁴, EarlyStopping) learning curves; quantify oscillations and plateau onset via epoch-wise val_loss variance and peak val_accuracy.
     """)
 
     # load live metrics
-    metrics = load_metrics()  
+    metrics = load_metrics()
     current_recall = metrics["recall_mildew"]
 
     # Gauge chart: target vs. current recall

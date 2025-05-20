@@ -1,6 +1,7 @@
 import numpy as np
 from matplotlib.image import imread
 
+
 def compute_stats_for_class(class_dir):
     """
     Compute the per-pixel mean and standard-deviation images for all images in a class folder.
@@ -19,5 +20,5 @@ def compute_stats_for_class(class_dir):
         imgs.append(img)
     stack = np.stack(imgs, axis=0)  # shape = (Num, Hgt, Wdth, Chnl)
     mean_img = np.mean(stack, axis=0)
-    std_img  = np.std(stack, axis=0)
+    std_img = np.std(stack, axis=0)
     return mean_img, std_img

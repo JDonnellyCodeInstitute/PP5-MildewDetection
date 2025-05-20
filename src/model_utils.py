@@ -4,6 +4,7 @@ from tensorflow.keras.models import load_model
 
 DRIVE_URL = "https://drive.google.com/uc?id={file_id}"
 
+
 def get_or_download_model(file_id: str, dest_path: Path):
     """
     Download the model via gdown if missing, then load it.
