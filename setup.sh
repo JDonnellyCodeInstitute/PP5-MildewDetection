@@ -1,3 +1,7 @@
+# Ensure our src/ package is importable
+export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
+
+# Streamlit configuration
 mkdir -p ~/.streamlit/
 echo "\
 [server]\n\

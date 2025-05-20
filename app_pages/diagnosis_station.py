@@ -1,14 +1,9 @@
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import numpy as np
 import pandas as pd
-from pathlib import Path
 from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array
 import plotly.graph_objects as go
-
 # Cache helpers
 from src.streamlit_utils import get_model, load_class_indices, load_image_shape
 

@@ -1,10 +1,6 @@
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import numpy as np
 import random
-from pathlib import Path
 from PIL import Image
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, array_to_img
 

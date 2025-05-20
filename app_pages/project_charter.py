@@ -1,9 +1,5 @@
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import streamlit as st
 import plotly.graph_objects as go
-from pathlib import Path
 
 # cached loader for metrics.json
 from src.streamlit_utils import load_metrics
