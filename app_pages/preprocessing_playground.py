@@ -72,5 +72,5 @@ def page_preprocessing_playground_body():
     st.markdown("---")
     st.write(
         "Use the sliders and checkboxes in the sidebar to tweak augmentation parameters "
-        "and see how they transform raw leaf images in real time."
+        "and see how they transform raw leaf images in real-time."
     )

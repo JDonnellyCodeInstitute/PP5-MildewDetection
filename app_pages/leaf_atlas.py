@@ -31,7 +31,7 @@ def page_leaf_atlas_body():
     df_stats = load_image_stats()
 
     # Sidebar filters
-    st.sidebar.header("Visualization Controls")
+    st.sidebar.header("Visualisation Controls")
     classes = df_stats["class"].unique().tolist()
     selected_classes = st.sidebar.multiselect(
         "Select classes to display", classes, default=classes

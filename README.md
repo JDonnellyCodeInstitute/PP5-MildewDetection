@@ -5,8 +5,8 @@ Our Cherry Leaf Mildew Detector is a full end-to-end predictive analytics soluti
 This README lays out the project's pathway through the CRISP-DM process:
 
 1. **Data Collection & Preparation**: Download and clean the Kaggle cherry-leaves dataset, then split it into train/validation/test with a fixed seed.  
-2. **Data Visualization**: Explore class balance, image dimensions, per-class mean/std images, variance maps, and sample montages.  
-3. **Modeling & Evaluation**: Define, train, and tune a custom CNN with EarlyStopping; export metrics, history, and artifacts.  
+2. **Data Visualisation**: Explore class balance, image dimensions, per-class mean/std images, variance maps, and sample montages.  
+3. **Modelling & Evaluation**: Define, train, and tune a custom CNN with EarlyStopping; export metrics, history, and artefacts.  
 4. **Interactive Dashboard**: Deploy a multipage Streamlit app that documents objectives, visual insights, preprocessing controls, training curves, validation metrics, and a live “Diagnosis Station” for user uploads.
 
 Scroll down to learn more about the dataset, business requirements, hypotheses, dashboard design, and deployment instructions.
@@ -42,6 +42,7 @@ Scroll down to learn more about the dataset, business requirements, hypotheses, 
   - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
+    - [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -284,7 +285,7 @@ Use the steps below to create your own copy of this project and work on it local
 - **scikit-learn:** confusion matrix, classification report  
 - **Pandas / NumPy:** data manipulation, CSV/JSON exports  
 - **Plotly Express & Graph Objects:** interactive charts  
-- **Seaborn / Matplotlib:** static visualizations  
+- **Seaborn / Matplotlib:** static visualisations  
 - **Streamlit:** dashboard framework, caching, widgets  
 
 [⬆ Back to Contents](#contents)
@@ -296,7 +297,7 @@ Use the steps below to create your own copy of this project and work on it local
 ### User Story Testing
 
 - Dashboard pages were manually tested using the user stories as acceptance criteria.
-- Jupyter notebooks were assumed correct if their final outputs (saved figures, CSV/JSON artifacts, model files) were produced without errors—manual testing against notebook user stories was not performed.
+- Jupyter notebooks were assumed correct if their final outputs (saved figures, CSV/JSON artefacts, model files) were produced without errors—manual testing against notebook user stories was not performed.
 
 ---
 
@@ -321,7 +322,7 @@ Use the steps below to create your own copy of this project and work on it local
 | Feature                         | Action                                  | Expected Result                                                          | Actual Result     |
 |---------------------------------|-----------------------------------------|--------------------------------------------------------------------------|-------------------|
 | Preprocessing Playground page   | Navigate via sidebar                    | Sliders/checkboxes appear in sidebar                                     | Functions as intended |
-|                                 | Adjust rotation, zoom, shifts or flips  | Raw vs. augmented images update accordingly in real time                 | Functions as intended |
+|                                 | Adjust rotation, zoom, shifts or flips  | Raw vs. augmented images update accordingly in real-time                 | Functions as intended |
 
 ---
 
@@ -370,7 +371,7 @@ We ran **Flake8** over our application code (excluding long-line checks) to ensu
 flake8 src/ app_pages/ --ignore=E501
 ```
 
-- E501 (line-too-long) was deliberately ignored, since most long lines are user-facing strings in the Streamlit UI and do not impact functionality.
+- E501 (line-too-long) was deliberately ignored since most long lines are user-facing strings in the Streamlit UI and do not impact functionality.
 
 - Result: No other warnings or errors were reported, confirming our code conforms to PEP8 style guidelines outside of permitted long strings.
 
@@ -387,7 +388,7 @@ flake8 src/ app_pages/ --ignore=E501
 - CRISP-DM methodology inspired by industry best practices.
 - Code Institute's malaria identifier walkthrough project has been the foundation for the Cherry Leaf Mildew detector, particularly around 'what' and 'when' to do in the jupyter notebooks.
 - Business narrative adapted from Farmy & Foods case study provided by Code Institute.
-- Gauge plot guidlines from [Plotly](https://plotly.com/python/gauge-charts/)
+- Gauge plot guidelines from [Plotly](https://plotly.com/python/gauge-charts/)
 - Streamlit data cache decorator [st.cache_data](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data)
 - Easy implementation of interactive plotly charts via Streamlit [st.plotly_chart](https://docs.streamlit.io/develop/api-reference/charts/st.plotly_chart)
 - [Keras guide on binary classification](https://keras.io/examples/).
@@ -396,6 +397,10 @@ flake8 src/ app_pages/ --ignore=E501
 
 - Cherry-leaf images sourced from Kaggle: `codeinstitute/cherry-leaves`.  
 - Icons via Unicode and Plotly defaults.
+
+### Acknowledgments
+
+- I'd like to thank my mentor Mo Shami for all his assistance.
 
 [⬆ Back to Contents](#contents)
 
